@@ -11,9 +11,10 @@ const nextConfig = {
   basePath,
   assetPrefix: basePath || undefined,
   images: {
-    formats: ['image/avif', 'image/webp'],
-    // Static Export kann den next/image-Optimizer nicht ausliefern.
-    unoptimized: true,
+    // Static Export: Custom Loader setzt NEXT_PUBLIC_BASE_PATH vor jede src,
+    // damit Bilder auf GitHub Pages (/CarmaDesign3D/images/...) korrekt laden.
+    loader: 'custom',
+    loaderFile: './lib/image-loader.ts',
     remotePatterns: [],
   },
   experimental: {
