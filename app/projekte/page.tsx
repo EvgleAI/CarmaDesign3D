@@ -6,6 +6,7 @@ import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Reveal } from '@/components/ui/Reveal';
 import { ProjectCard } from '@/components/projects/ProjectCard';
 import { getAllProjects, type Project } from '@/lib/projects';
+import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata = pageMetadata({
   title: 'Projekte',
@@ -25,16 +26,12 @@ export default async function ProjekteOverviewPage() {
 
   return (
     <>
-      <section className="bg-paper">
-        <div className="container-edit py-22 md:py-30">
-          <Eyebrow>Individuell · Für Gestalter</Eyebrow>
-          <h1 className="mt-6 text-h1">Außergewöhnliche Räume.</h1>
-          <p className="mt-6 max-w-2xl text-body text-ink/70">
-            Maßgefertigte Raumgestaltung für Messe- und Ladenbau, Gastronomie,
-            Hotellerie, Architektur, Kunst und den öffentlichen Raum.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Individuell · Für Gestalter"
+        title="Außergewöhnliche Räume."
+        subtitle="Maßgefertigte Raumgestaltung für Messe- und Ladenbau, Gastronomie, Hotellerie, Architektur, Kunst und den öffentlichen Raum."
+        imageSrc={null}
+      />
 
       <Section tone="paper">
         {projects.length === 0 ? (
