@@ -34,6 +34,7 @@ jobs:
         run: pnpm build
         env:
           NEXT_PUBLIC_BASE_PATH: /CarmaDesign3D
+          NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
 
       - uses: actions/configure-pages@v5
 
