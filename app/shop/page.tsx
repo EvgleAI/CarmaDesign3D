@@ -1,10 +1,9 @@
 import { pageMetadata } from '@/lib/seo';
 import { Section } from '@/components/ui/Section';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Reveal } from '@/components/ui/Reveal';
 import { Tile } from '@/components/ui/Tile';
 import { LINE_COPY, LINE_ORDER } from '@/lib/shop-types';
-import { getProductsByLine } from '@/lib/shop-data';
+import { getFeaturedByLine } from '@/lib/shop-data';
 import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata = pageMetadata({
