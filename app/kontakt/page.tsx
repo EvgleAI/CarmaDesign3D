@@ -4,6 +4,7 @@ import { Section } from '@/components/ui/Section';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { SITE } from '@/lib/site';
+import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata = pageMetadata({
   title: 'Kontakt',
@@ -18,16 +19,12 @@ export default function KontaktPage() {
 
   return (
     <>
-      <section className="bg-paper">
-        <div className="container-edit py-22 md:py-30">
-          <Eyebrow>Sprechen Sie mit uns</Eyebrow>
-          <h1 className="mt-6 text-h1">Kontakt.</h1>
-          <p className="mt-6 max-w-2xl text-body text-ink/70">
-            Wir besprechen Projekte am liebsten früh — und am liebsten persönlich.
-            Antworten in der Regel innerhalb eines Werktags.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Sprechen Sie mit uns"
+        title="Kontakt."
+        subtitle="Wir besprechen Projekte am liebsten früh — und am liebsten persönlich. Antworten in der Regel innerhalb eines Werktags."
+        imageSrc={null}
+      />
 
       <Section tone="paper">
         <div className="grid gap-16 md:grid-cols-[1fr_2fr] md:gap-20">

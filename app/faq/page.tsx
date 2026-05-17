@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { pageMetadata } from '@/lib/seo';
 import { Section } from '@/components/ui/Section';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Accordion, AccordionItem } from '@/components/ui/Accordion';
 import { SITE } from '@/lib/site';
+import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata = pageMetadata({
   title: 'FAQ',
@@ -19,16 +19,12 @@ export const metadata = pageMetadata({
 export default function FaqPage() {
   return (
     <>
-      <section className="bg-paper">
-        <div className="container-edit py-22 md:py-30">
-          <Eyebrow>Häufige Fragen</Eyebrow>
-          <h1 className="mt-6 text-h1">Antworten auf das, was uns oft erreicht.</h1>
-          <p className="mt-6 max-w-2xl text-body text-ink/70">
-            Sollte Ihre Frage hier nicht stehen, melden Sie sich gerne direkt — wir
-            antworten in der Regel innerhalb eines Werktags.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Häufige Fragen"
+        title="Antworten auf das, was uns oft erreicht."
+        subtitle="Sollte Ihre Frage hier nicht stehen, melden Sie sich gerne direkt — wir antworten in der Regel innerhalb eines Werktags."
+        imageSrc={null}
+      />
 
       <Section tone="paper" innerClassName="max-w-3xl">
         <Accordion>

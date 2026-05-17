@@ -5,6 +5,7 @@ import { Reveal } from '@/components/ui/Reveal';
 import { ProductGrid } from '@/components/shop/ProductGrid';
 import { LINE_COPY, LINE_ORDER } from '@/lib/shop-types';
 import { getProductsByLine } from '@/lib/shop-data';
+import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata = pageMetadata({
   title: 'Shop',
@@ -23,18 +24,12 @@ export const metadata = pageMetadata({
 export default function ShopPage() {
   return (
     <>
-      <section className="bg-paper">
-        <div className="container-edit py-22 md:py-30">
-          <Eyebrow>Kollektion · Für Zuhause</Eyebrow>
-          <h1 className="mt-6 text-h1">Möbelskulpturen aus der Manufaktur.</h1>
-          <p className="mt-6 max-w-2xl text-body text-ink/70">
-            Vier Linien, jede mit einem klaren Charakter. Hergestellt im
-            großformatigen 3D-Druck aus wiederverwertetem Material — zum Teil
-            kombiniert mit massiver Eiche. Preise klären wir individuell pro
-            Objekt.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Kollektion · Für Zuhause"
+        title="Möbelskulpturen aus der Manufaktur."
+        subtitle="Vier Linien, jede mit einem klaren Charakter. Hergestellt im großformatigen 3D-Druck aus wiederverwertetem Material — zum Teil kombiniert mit massiver Eiche."
+        imageSrc={null}
+      />
 
       {LINE_ORDER.map((line, index) => {
         const copy = LINE_COPY[line];

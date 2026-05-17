@@ -5,6 +5,7 @@ import { Section } from '@/components/ui/Section';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Reveal } from '@/components/ui/Reveal';
 import { Possibilities } from '@/components/home/Possibilities';
+import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata = pageMetadata({
   title: 'Was wir machen',
@@ -60,36 +61,12 @@ const PROCESS_STEPS = [
 export default function WasWirMachenPage() {
   return (
     <>
-      <section
-        className="relative isolate overflow-hidden bg-ink text-paper"
-        aria-labelledby="page-title"
-      >
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-ink" />
-          <div
-            aria-hidden
-            className="absolute inset-0 opacity-[0.10]"
-            style={{
-              backgroundImage:
-                'repeating-linear-gradient(0deg, rgba(255,255,255,0.6) 0px, rgba(255,255,255,0.6) 1px, transparent 1px, transparent 6px)',
-            }}
-          />
-        </div>
-
-        <div className="container-edit relative flex min-h-[65vh] flex-col justify-end py-22 md:py-30">
-          <Eyebrow className="text-paper/65">Manufaktur · Affalterbach</Eyebrow>
-          <h1
-            id="page-title"
-            className="mt-6 font-display font-bold uppercase leading-[0.95] tracking-[-0.02em] text-paper text-[clamp(3rem,8vw,7rem)]"
-          >
-            Eine Werkstatt, kein Werk.
-          </h1>
-          <p className="mt-8 max-w-2xl text-[17px] leading-relaxed text-paper/80 md:text-[19px]">
-            Skulpturale Objekte. Großformatig 3D-gedruckt. Gefertigt in der
-            Manufaktur bei Stuttgart.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Manufaktur · Affalterbach"
+        title="Eine Werkstatt, kein Werk."
+        subtitle="Skulpturale Objekte. Großformatig 3D-gedruckt. Gefertigt in der Manufaktur bei Stuttgart."
+        imageSrc={null}
+      />
 
       <Section tone="paper">
         <div className="grid gap-12 md:grid-cols-[1fr_2fr] md:gap-20">
