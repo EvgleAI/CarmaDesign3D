@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /cookie-einstellungen
+
+Sitemap: https://www.carmadesign3d.de/sitemap.xml
