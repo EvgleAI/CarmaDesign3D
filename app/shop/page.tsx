@@ -1,10 +1,9 @@
 import { pageMetadata } from '@/lib/seo';
 import { Section } from '@/components/ui/Section';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Reveal } from '@/components/ui/Reveal';
-import { ProductGrid } from '@/components/shop/ProductGrid';
+import { Tile } from '@/components/ui/Tile';
 import { LINE_COPY, LINE_ORDER } from '@/lib/shop-types';
-import { getProductsByLine } from '@/lib/shop-data';
+import { getFeaturedByLine } from '@/lib/shop-data';
 import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata = pageMetadata({
@@ -14,14 +13,9 @@ export const metadata = pageMetadata({
   path: '/shop',
 });
 
-/**
- * Shop-Übersicht. Vier Linien-Sektionen mit poetischen Live-Claims als
- * Eyebrow + Sub und Produkt-Grid darunter.
- *
- * Preise sind live nicht ausgewiesen → ProductCard zeigt „Auf Anfrage".
- * Add-to-Cart und Mailto-Anfrage werden auf der Detailseite zugänglich.
- */
 export default function ShopPage() {
+  const featured = getFeaturedByLine();
+
   return (
     <>
       <PageHero
@@ -31,35 +25,27 @@ export default function ShopPage() {
         imageSrc={null}
       />
 
-      {LINE_ORDER.map((line, index) => {
-        const copy = LINE_COPY[line];
-        const products = getProductsByLine(line);
-        const tone = index % 2 === 0 ? 'paper' : 'stone';
-        return (
-          <Section key={line} tone={tone}>
-            <Reveal>
-              <div className="grid items-end gap-6 md:grid-cols-[1fr_auto] md:gap-12">
-                <div className="max-w-3xl">
-                  <Eyebrow>
-                    {copy.label} · {copy.type}
-                  </Eyebrow>
-                  <h2 className="mt-3 font-display text-[clamp(2rem,4.5vw,3.5rem)] font-bold uppercase leading-[1.05] tracking-[-0.01em]">
-                    {copy.eyebrow}
-                  </h2>
-                  <p className="mt-3 text-[18px] text-ink/70 md:text-[20px]">{copy.sub}</p>
-                </div>
-                <p className="max-w-md text-body text-ink/65 md:justify-self-end md:text-right">
-                  {copy.lead}
-                </p>
-              </div>
-            </Reveal>
-
-            <div className="mt-16">
-              <ProductGrid products={products} />
-            </div>
-          </Section>
-        );
-      })}
+      <Section tone="stone">
+        <div className="grid gap-4 sm:grid-cols-2 md:gap-6">
+          {LINE_ORDER.map((line, i) => {
+            const copy = LINE_COPY[line];
+            const product = featured[line];
+            return (
+              <Reveal key={line} delay={i * 80}>
+                <Tile
+                  href={`/shop/${line}`}
+                  ratio="landscape"
+                  eyebrow={`${copy.label} · ${copy.type}`}
+                  title={copy.eyebrow}
+                  sub={copy.sub}
+                  image={product?.featuredImage ?? undefined}
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                />
+              </Reveal>
+            );
+          })}
+        </div>
+      </Section>
     </>
   );
 }
